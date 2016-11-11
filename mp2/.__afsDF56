@@ -1,0 +1,13 @@
+<?php
+  include_once('AbstractFactoryMethod.php');
+  
+  include_once('TameemWebsite.php'); 
+  
+  
+  class WebsiteFactoryMethod extends AbstractFactoryMethod {
+    function makeWebsite() {
+      $website = new TameemWebsite;
+      return $website;  
+    }
+  }
+?>

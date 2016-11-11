@@ -1,0 +1,33 @@
+
+<?php
+class WeaponSingleton {
+
+
+    private static $weap = NULL;
+    private static $hasWeapon = FALSE;
+
+
+    private function __construct() {
+    }
+
+
+    static function pickup() {
+      if (FALSE == self::$hasWeapon) {
+        if (NULL == self::$weap) {
+           self::$weap = new WeaponSingleton();
+        }
+        self::$hasWeapon = TRUE;
+        return self::$weap;
+      } else {
+        return NULL;
+      }
+    }
+
+
+    function drop(WeaponSingleton $drop) {
+        self::$hasWeapon = FALSE;
+    }
+
+
+  }
+?>

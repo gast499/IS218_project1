@@ -1,0 +1,7 @@
+<?php
+abstract class AbstractWebsite {
+    abstract function getTitle();
+    private $type = "html";
+  
+}
+?>

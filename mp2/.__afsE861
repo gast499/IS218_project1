@@ -1,0 +1,20 @@
+<?php
+  include_once('AbstractWebsite.php');
+  
+  class TameemWebsite extends AbstractWebsite {
+  
+    private $title;
+    
+    private static $oddOrEven = 'odd';
+    function __construct() {
+       if ('odd' == self::$oddOrEven) {
+        $this->title  = 'My First Website';
+        self::$oddOrEven = 'even';
+       } else {
+        $this->title  = 'My Second Website'; 
+        self::$oddOrEven = 'odd';
+       } 
+    }
+    function getTitle() {return $this->title;}
+  }
+?>
