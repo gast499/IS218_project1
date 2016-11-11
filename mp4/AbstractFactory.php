@@ -1,5 +1,5 @@
 <?php
   abstract class AbstractFactory{
-    abstract public function newLibrarian();
+    abstract public function newCustomer($n, $g);
   }
 ?>

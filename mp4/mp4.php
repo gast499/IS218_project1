@@ -39,4 +39,5 @@
   echo 'The customer decides to get the business card with his name in all caps and walks out of the store.<br>';
 
   echo '<br>END TESTING STRATEGY, ABSTRACT FACTORY, AND OBSERVER PATTERN'.BR;
+
 ?>
