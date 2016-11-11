@@ -1,0 +1,40 @@
+<?php
+  include_once('Customer.php');
+  include_once('CustomerFactory.php');
+  include_once('CustomerNameDecorator.php');
+  include_once('CustomerLastNameDecorator.php');
+  include_once('Observer.php');
+  include_once('Paper.php');
+  
+  echo 'BEGIN TESTING DECORATOR, ABSTRACT FACTORY, AND OBSERVER PATTERN<br><br><br>';
+  $custFact = new CustomerFactory();
+  $firstCustomer = $custFact->newCustomer('John', 'Male');
+  $o = new Observer();
+  $pap = new Paper();
+  $pap->attach($o);
+  $decorator = new CustomerNameDecorator($firstCustomer);
+  $lastNameDecorator = new CustomerLastNameDecorator($decorator);
+  
+  echo 'A customer walks into Starbucks and orders a drink.  The employee asks for his name.<br>';
+  
+  echo 'The customer\'s name is: ' . $decorator->showName() . '<br><br>';
+  
+  echo 'The customer\'s name, including last name, is: ';
+  
+  $lastNameDecorator->addLastName('Smith');
+  echo $decorator->showName() . '<br><br>'; 
+  
+  echo 'The employee asks a customer to write his name on a piece of paper:<br>';
+  $pap->write('John Smith');
+  
+  $decorator->resetName();
+  //echo $decorator->showName() . '<br><br>';
+  
+  echo '<br><br>The employee only wanted the customer\'s first name for his order.<br>The customer only writes his first name.';
+  echo '<br>After ignoring the customer\'s last name, the customer\'s name is: ';
+  $pap->write('John');
+  
+  echo '<br>FINISHED TESTING DECORATOR, ABSTRACT FACTORY, AND OBSERVER PATTERN';
+  //*/
+  
+?>
